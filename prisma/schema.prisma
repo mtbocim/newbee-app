@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model job_boards {
+  id                  Int            @id @default(autoincrement())
+  company_name        String         @unique @default("requires research") @db.VarChar(250)
+  careers_url         String
+  ats_url             String         @db.VarChar(50)
+  career_date_scraped DateTime       @default(now()) @db.Timestamp(6)
+  job_postings        job_postings[]
+}
+
+model job_postings {
+  id               Int        @id @default(autoincrement())
+  job_title        String?    @db.VarChar
+  job_url          String
+  job_id           String     @unique(map: "ix_job_postings_job_id") @db.VarChar
+  job_scraped_date DateTime   @default(now()) @db.Timestamp(6)
+  company_name     String     @db.VarChar
+  job_description  String?
+  json_response    Json?      @db.Json
+  job_boards       job_boards @relation(fields: [company_name], references: [company_name], onDelete: Cascade, onUpdate: NoAction)
+}
