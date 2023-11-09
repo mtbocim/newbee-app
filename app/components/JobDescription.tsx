@@ -46,9 +46,9 @@ export default function JobDescription({
   const display = hasLocation && hasTech;
 
   return (
-    <div>
+    <div >
       {display && (
-        <div>
+        <div style={{width:'50vw'}}>
           <br />
           <div>{jobDescription.job_title}</div>
           <div>{jobDescription.json_response?.location}</div>

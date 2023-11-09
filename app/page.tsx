@@ -36,25 +36,11 @@ export default function Home() {
     []
   );
   const [locationTags, setLocationTags] = useState<Array<tagDataInterface>>([]);
-  
-  
+
   const [selectedLocations, setSelectedLocations] = useState<
     Array<tagDataInterface>
   >([]);
   const [selectedTech, setSelectedTech] = useState<Array<tagDataInterface>>([]);
-
-  const selectStyles = {
-    control: (provided:any) => ({
-      ...provided,
-      width: "20vw",
-      minWidth: "400px",
-    }),
-    menuList: (provided:any) => ({
-      ...provided,
-      width: "20vw",
-      minWidth: "400px",
-    }),
-  };
 
   useEffect(() => {
     async function getProjectsData() {
@@ -110,7 +96,7 @@ export default function Home() {
 
   return (
     <main>
-      <div>
+      <div style={{ display: "flex" }}>
         <Select
           closeMenuOnSelect={false}
           isMulti
@@ -129,18 +115,32 @@ export default function Home() {
         />
         {/* <main className={styles.main}>
       <div className={styles.description}> */}
-        Hello!
-        {selectedLocations.length !== 0 &&
-          selectedTech.length !== 0 &&
-          data.map((item: dataInterface, i) => (
-            <JobDescription
-              key={i}
-              jobDescription={item}
-              selectedTechTags={selectedTech}
-              selectedLocationTags={selectedLocations}
-            />
-          ))}
+        <div style={{ display: "flex", flexFlow: "column" }}>
+          {selectedLocations.length !== 0 &&
+            selectedTech.length !== 0 &&
+            data.map((item: dataInterface, i) => (
+              <JobDescription
+                key={i}
+                jobDescription={item}
+                selectedTechTags={selectedTech}
+                selectedLocationTags={selectedLocations}
+              />
+            ))}
+        </div>
       </div>
     </main>
   );
 }
+
+const selectStyles = {
+  control: (provided: any) => ({
+    ...provided,
+    width: "20vw",
+    minWidth: "400px",
+  }),
+  menuList: (provided: any) => ({
+    ...provided,
+    width: "20vw",
+    minWidth: "400px",
+  }),
+};
