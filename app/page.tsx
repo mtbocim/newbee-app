@@ -24,26 +24,32 @@ interface dataInterface {
 }
 
 interface tagDataInterface {
-  value:string,
-  label:string,
+  value: string;
+  label: string;
 }
 
 export default function Home() {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState<Array<dataInterface>>([]);
-  const [techStackTags, setTechStackTags] = useState<Set<string>>(new Set());
-  const [locationTags, setLocations] = useState<Set<string>>(new Set());
-  const [selectedLocations, setSelectedLocations] = useState<Array<tagDataInterface>>([]);
+
+  const [techStackTags, setTechStackTags] = useState<Array<tagDataInterface>>(
+    []
+  );
+  const [locationTags, setLocationTags] = useState<Array<tagDataInterface>>([]);
+  
+  
+  const [selectedLocations, setSelectedLocations] = useState<
+    Array<tagDataInterface>
+  >([]);
   const [selectedTech, setSelectedTech] = useState<Array<tagDataInterface>>([]);
-  console.log('What are selected techs', selectedTech)
 
   const selectStyles = {
-    control: (provided) => ({
+    control: (provided:any) => ({
       ...provided,
       width: "20vw",
       minWidth: "400px",
     }),
-    menuList: (provided) => ({
+    menuList: (provided:any) => ({
       ...provided,
       width: "20vw",
       minWidth: "400px",
@@ -67,26 +73,39 @@ export default function Home() {
           jobLocations.add(item.json_response.location);
       }
 
-      setTechStackTags(() => techStacks);
-      setLocations(() => jobLocations);
-      setData(()=>data);
-      setLoading(()=>false)
+      setTechStackTags(() =>
+        Array.from(techStacks, (value) => ({
+          value: value,
+          label: value,
+        }))
+      );
+
+      setLocationTags(() =>
+        Array.from(jobLocations, (value) => ({
+          value: value,
+          label: value,
+        }))
+      );
+      setData(() => data);
+      setLoading(() => false);
     }
     getProjectsData();
   }, []);
 
-  function handleSelectedTechTagsChange(selectedValues:Array<tagDataInterface>) {
+  function handleSelectedTechTagsChange(
+    selectedValues: Array<tagDataInterface>
+  ) {
     setSelectedTech(() => selectedValues);
   }
 
-  function handleSelectedLocationTagsChange(selectedValues:Array<tagDataInterface>) {
+  function handleSelectedLocationTagsChange(
+    selectedValues: Array<tagDataInterface>
+  ) {
     setSelectedLocations(() => selectedValues);
   }
 
-  if(loading){
-    return(
-      <div>Loading...</div>
-    )
+  if (loading) {
+    return <div>Loading...</div>;
   }
 
   return (
@@ -95,10 +114,7 @@ export default function Home() {
         <Select
           closeMenuOnSelect={false}
           isMulti
-          options={Array.from(techStackTags, (value) => ({
-            value: value,
-            label: value,
-          }))}
+          options={techStackTags}
           onChange={handleSelectedTechTagsChange}
           value={selectedTech}
           styles={selectStyles}
@@ -106,10 +122,7 @@ export default function Home() {
         <Select
           closeMenuOnSelect={false}
           isMulti
-          options={Array.from(locationTags, (value) => ({
-            value: value,
-            label: value,
-          }))}
+          options={locationTags}
           onChange={handleSelectedLocationTagsChange}
           value={selectedLocations}
           styles={selectStyles}
@@ -117,7 +130,8 @@ export default function Home() {
         {/* <main className={styles.main}>
       <div className={styles.description}> */}
         Hello!
-        {(selectedLocations.length !== 0 && selectedTech.length !== 0) &&
+        {selectedLocations.length !== 0 &&
+          selectedTech.length !== 0 &&
           data.map((item: dataInterface, i) => (
             <JobDescription
               key={i}

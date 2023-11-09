@@ -32,7 +32,6 @@ export default function JobDescription({
   const techTags = selectedTechTags.map((i) => i.value);
   const locationTags = selectedLocationTags.map((i) => i.value);
 
-  console.log("Are tags extracted correctly:", techTags, locationTags)
   
   const hasTech = jobDescription.json_response?.tech_stack
     ? jobDescription.json_response?.tech_stack.some((value) =>
@@ -44,7 +43,6 @@ export default function JobDescription({
     ? locationTags.includes(jobDescription.json_response?.location)
     : false;
 
-    console.log("Are checks correct? ", hasLocation, hasTech)
   const display = hasLocation && hasTech;
 
   return (
