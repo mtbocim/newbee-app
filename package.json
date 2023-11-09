@@ -13,7 +13,8 @@
     "next": "14.0.1",
     "prisma": "^5.5.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-select": "^5.8.0"
   },
   "devDependencies": {
     "@types/node": "^20",
