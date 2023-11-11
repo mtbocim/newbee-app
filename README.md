@@ -9,7 +9,7 @@ npm install
 
 Add a .env with the value
 ```
-DATABASE_URL=postgresql://[local username]:[local password]@localhost/resume_builder
+DATABASE_URL=postgresql://[local username]:[local password]@localhost/job_crawler
 ```
 If you don't know your password, you can reset by
 ```bash
