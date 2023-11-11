@@ -2,7 +2,27 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+After cloning the repo don't forget your
+```bash
+npm install
+```
+
+Add a .env with the value
+```
+DATABASE_URL=postgresql://[local username]:[local password]@localhost/resume_builder
+```
+If you don't know your password, you can reset by
+```bash
+psql
+```
+then
+```postgres
+ALTER USER your_username WITH PASSWORD 'new_password';
+```
+
+_If you don't have the local data, head over to **https://github.com/stzheng716/test_job_scraper** for where and how to get it_
+
+To run the development server:
 
 ```bash
 npm run dev
@@ -14,23 +34,18 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Database syncing
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To bring schema into sync with current database if changes are made: 
 
-## Learn More
+```bash
+npx prisma db pull
+```
 
-To learn more about Next.js, take a look at the following resources:
+Then generate typescript types:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+npx prisma generate
+```
