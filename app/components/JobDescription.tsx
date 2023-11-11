@@ -1,33 +1,14 @@
-interface dataInterface {
-  id: number;
-  job_title: string;
-  job_url: string;
-  job_id: string;
-  job_scraped_date: string;
-  company_name: string;
-  job_description: string;
-  json_response?: {
-    apply?: string;
-    salary?: string;
-    location?: string;
-    department?: string;
-    tech_stack?: string[];
-  };
-}
-
-interface tagDataInterface {
-  value: string;
-  label: string;
-}
+import JobPostingsInterface from "../interfaces/JobPostingsInterface";
+import TagDataInterface from "../interfaces/TagDataInterface";
 
 export default function JobDescription({
   jobDescription,
   selectedLocationTags,
   selectedTechTags,
 }: {
-  jobDescription: dataInterface;
-  selectedLocationTags: Array<tagDataInterface>;
-  selectedTechTags: Array<tagDataInterface>;
+  jobDescription: JobPostingsInterface;
+  selectedLocationTags: Array<TagDataInterface>;
+  selectedTechTags: Array<TagDataInterface>;
 }) {
   const techTags = selectedTechTags.map((i) => i.value);
   const locationTags = selectedLocationTags.map((i) => i.value);
