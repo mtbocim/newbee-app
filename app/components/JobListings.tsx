@@ -77,15 +77,15 @@ export default function JobListings({
   }, [jobListingData]);
 
   function handleSelectedTechTagsChange(
-    selectedValues: Array<TagDataInterface>
+    selectedValues: any
   ) {
-    setSelectedTech(() => selectedValues);
+    setSelectedTech(() => selectedValues as Array<TagDataInterface>);
   }
 
   function handleSelectedLocationTagsChange(
-    selectedValues: Array<TagDataInterface>
+    selectedValues: any
   ) {
-    setSelectedLocations(() => selectedValues);
+    setSelectedLocations(() => selectedValues as Array<TagDataInterface>);
   }
 
   return (
