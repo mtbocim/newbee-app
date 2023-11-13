@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  margin: 5px 20px 5px 20px;
+}
+
+/* .centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as needed */
+/* } */
+
+.grid-centered {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
