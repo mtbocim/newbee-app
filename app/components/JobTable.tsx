@@ -1,10 +1,12 @@
+import React from 'react';
+import JobTableRow from './JobTableRow'; // Adjust the path as necessary
 import JobPostingsInterface from "../interfaces/JobPostingsInterface";
 
-export default function JobTable({
-  descriptions,
-}: {
+interface JobTableProps {
   descriptions: Array<JobPostingsInterface>;
-}) {
+}
+
+const JobTable: React.FC<JobTableProps> = ({ descriptions }) => {
   return (
     <div className="w-10/12 shadow overflow-x-auto grid-centered">
       <table className="table table-xs table-pin-rows">
@@ -18,21 +20,13 @@ export default function JobTable({
           </tr>
         </thead>
         <tbody>
-          {descriptions.map((item, i) => {
-            return (
-              <tr className="hover" key={i}>
-                <td className="w-1/12">
-                  <a href={item.job_url} target="_blank">{item.job_title}</a>
-                </td >
-                <td className="w-1/12">{item.company_name}</td>
-                <td className="w-3/12">{item.job_description?.slice(0, 300)}</td>
-                <td className="w-2/12">{item.json_response?.tech_stack?.join(", ")}</td>
-                <td className="w-1/12">{item.json_response?.location}</td>
-              </tr>
-            );
-          })}
+          {descriptions.map((item, index) => (
+            <JobTableRow key={index} item={item} />
+          ))}
         </tbody>
       </table>
     </div>
   );
-}
+};
+
+export default JobTable;
