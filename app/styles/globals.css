@@ -35,6 +35,13 @@ body {
   border-bottom-right-radius: 20px;
 }
 
+table {
+  margin: 15px;
+}
+
+.wider-cell {
+  width:35vw;
+}
 
 
 

@@ -1,29 +1,27 @@
-import type { Metadata } from 'next'
-import {  Mooli } from 'next/font/google'
-import '@/app/styles/globals.css'
-import NavBar from './components/NavBar'
+import type { Metadata } from "next";
+import { Geologica } from "next/font/google";
+import "@/app/styles/globals.css";
+import NavBar from "./components/NavBar";
 
-const moogliFont = Mooli({
-  weight: '400',
-  subsets: [ 'latin' ],
-  display: 'swap',
-})
+const geologicaFont = Geologica({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={moogliFont.className}>
+    <html lang='en'>
+      <body className={geologicaFont.className}>
         <NavBar />
-        <div className="flex justify-center items-center h-screen">
+        <div className='flex justify-center items-center h-screen'>
           {children}
         </div>
       </body>
     </html>
-  )
+  );
 }
-
-
