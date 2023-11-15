@@ -3,18 +3,41 @@
 @tailwind utilities;
 
 body {
-  margin: 5px 20px 5px 20px;
+  /* margin: 5px 20px 5px 20px; */
 }
 
-/* .centered-content {
+.centered-content {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh; /* Adjust the height as needed */
-/* } */
+}
 
 .grid-centered {
   display: grid;
   place-items: center;
   height: 100vh;
 }
+
+.card {
+    width: 400px;
+    padding: 20px;
+    margin: 5px;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.nav-link {
+  padding: 10px;
+}
+
+.rounded-navbar {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+
+
+
+
+
