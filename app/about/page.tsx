@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import ContributorCard from '../components/ContributorCard';
 
 const contributors = [
   "camrandev",
@@ -16,15 +17,14 @@ export default async function About() {
         contribData.push(await response.json())
     }
 
-    return( <div>
+    return( <div className="grid-centered">
         About page
-        {contribData.map(i=>{
+        {contribData.map(contributor => {
+            console.log(contributor)
             return(
-                <div key={i.login}>
-                    {i.name}
-                    <Image src={i.avatar_url} alt={`${i.name}'s avatar`} width={100} height={100}/>    
+                <div key={contributor.id}>
+                    <ContributorCard contributorData={contributor} />
                 </div>
-                
             )
         })}
         </div>
