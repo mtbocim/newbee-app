@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  margin: 5px 20px 5px 20px;
+  /* margin: 5px 20px 5px 20px; */
 }
 
 .centered-content {
@@ -23,5 +23,21 @@ body {
     width: 400px;
     padding: 20px;
     margin: 5px;
-    background: 
+    color: #ffffff;
+    font-size: 12px;
 }
+
+.nav-link {
+  padding: 10px;
+}
+
+.rounded-navbar {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+
+
+
+
+

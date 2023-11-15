@@ -13,14 +13,15 @@ export default async function Home() {
       })) as Array<JobPostingsInterface>)
     : [];
     return (
-      <div>
-        {results &&
-          results.map(result => (
-            <div key={result.id}> {/* Assuming there is an 'id' field */}
-              <h2>{result.job_title}</h2>
-              <p>{result.company_name}</p>
-            </div>
-          ))}
-      </div>
+      // <div>
+      //   {results &&
+      //     results.map(result => (
+      //       <div key={result.id}> {/* Assuming there is an 'id' field */}
+      //         <h2>{result.job_title}</h2>
+      //         <p>{result.company_name}</p>
+      //       </div>
+      //     ))}
+      // </div>
+      <>Hi</>
     );
   }

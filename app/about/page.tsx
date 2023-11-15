@@ -2,12 +2,12 @@ import Image from 'next/image'
 import ContributorCard from '../components/ContributorCard';
 
 const contributors = [
-  "camrandev",
-  "CodingHobo",
-  "hbnnguyen",
-  "MGHermanMancarella",
-  "mtbocim",
   "stzheng716",
+  "MGHermanMancarella",
+  "CodingHobo",
+  "camrandev",
+  "hbnnguyen",
+  "mtbocim",
 ];
 
 export default async function About() {
