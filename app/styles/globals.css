@@ -15,8 +15,7 @@ body {
 
 .grid-centered {
   display: grid;
-  place-items: center;
-  height: 100vh;
+  height: 60vh;
 }
 
 .card {
