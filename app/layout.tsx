@@ -20,16 +20,16 @@ const theme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#5c6060",
+      main: "#ffbe0b",
       light: "#ffbe0b",
-      contrastText: "#ffbe0b",
+      contrastText: "#4b5563",
     },
     secondary: {
       main: "#00796b",
     },
     background: {
       default: "#ffedd5",
-      paper: "rgba(245,245,245,0.86)",
+      paper: "F5F5F5",
     },
     info: {
       main: "#009688",

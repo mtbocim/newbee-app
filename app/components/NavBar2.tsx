@@ -164,7 +164,8 @@ function ResponsiveAppBar() {
 
           <Box sx={{ flexGrow: 0 }}>
                 <Search
-                  sx={{
+              sx={{
+                    background: "#F5F5F5",
                     borderRadius: 2,
                   }}>
                   <SearchIconWrapper>
