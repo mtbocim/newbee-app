@@ -13,8 +13,8 @@ export default async function Home() {
         },
       })) as Array<JobPostingsInterface>)
     : [];
-    return (
-      // <>Hi</>
-      <JobTable descriptions={results}/>
-    );
-  }
+  return (
+    // <>Hi</>
+      <JobTable descriptions={results} />
+  );
+}
