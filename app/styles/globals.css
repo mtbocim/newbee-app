@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 body {
-  /* margin: 5px 20px 5px 20px; */
+  height: 100vh;
+  background-color: #ffedd5;
 }
 
 .centered-content {

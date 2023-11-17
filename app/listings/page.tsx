@@ -1,7 +1,6 @@
 import prisma from "@/app/lib/prisma";
 import JobPostingsInterface from "@/app/interfaces/JobPostingsInterface";
-import { Button } from "@mui/material";
-import Link from "next/link";
+import JobTable from "@/app/components/JobTable"
 
 export default async function Home() {
   const results = process.env.DATABASE_URL
@@ -16,11 +15,7 @@ export default async function Home() {
     : [];
   return (
     <>
-      <Link href="/listings" passHref>
-        <Button variant="contained" style={{ backgroundColor: "#ffbe0b" }}>
-          View Listings
-        </Button>
-      </Link>
+      <JobTable descriptions={results}/>
     </>
   );
 }
