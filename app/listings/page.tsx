@@ -1,6 +1,6 @@
 import prisma from "@/app/lib/prisma";
 import JobPostingsInterface from "@/app/interfaces/JobPostingsInterface";
-import JobTable2 from "@/app/components/JobTable2"
+import JobTable from "@/app/components/JobTable"
 
 export default async function Home() {
   const results = process.env.DATABASE_URL
@@ -15,7 +15,7 @@ export default async function Home() {
     : [];
   return (
     <>
-      <JobTable2 descriptions={results}/>
+      <JobTable descriptions={results}/>
     </>
   );
 }

@@ -1,7 +1,5 @@
 import prisma from "@/app/lib/prisma";
 import JobPostingsInterface from "@/app/interfaces/JobPostingsInterface";
-import JobTable from "./components/JobTable";
-import JobTable2 from "./components/JobTable2";
 import { Button } from "@mui/material";
 import Link from "next/link";
 
