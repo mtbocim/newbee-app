@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geologica } from "next/font/google";
 import "@/app/styles/globals.css";
-import NavBar from "./components/NavBar";
+import NavBar2 from "./components/NavBar2";
 
 const geologicaFont = Geologica({
   weight: "400",
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={geologicaFont.className}>
-        <NavBar />
+        <NavBar2 />
         <div className='flex justify-center items-center h-screen'>
           {children}
         </div>
