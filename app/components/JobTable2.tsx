@@ -1,20 +1,21 @@
-import * as React from 'react';
-import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
+"use client";
+import * as React from "react";
+import Paper from "@mui/material/Paper";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TablePagination from "@mui/material/TablePagination";
+import TableRow from "@mui/material/TableRow";
 
 import JobPostingsInterface from "../interfaces/JobPostingsInterface";
 
-interface Column {
-  id: 'job_title' | 'company' | 'description' | 'tech_stack' | 'location';
+interface jobTableColumn {
+  id: "job_title" | "company_name" | "tech_stack" | "location" | "salary";
   label: string;
   minWidth?: number;
-  align?: 'right';
+  align?: "right";
   format?: (value: number) => string;
 }
 
@@ -22,67 +23,85 @@ interface JobTableProps {
   descriptions: Array<JobPostingsInterface>;
 }
 
-const columns: readonly Column[] = [
-  { id: 'job_title', label: 'Job Title', minWidth: 170 },
-  { id: 'company', label: 'Company Name', minWidth: 100 },
-  {
-    id: 'description',
-    label: 'Description',
-    minWidth: 170,
-    align: 'right',
-    format: (value: number) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'tech_stack',
-    label: 'tech_stack',
-    minWidth: 170,
-    align: 'right',
-    format: (value: number) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'location',
-    label: 'Location',
-    minWidth: 170,
-    align: 'right',
-    format: (value: number) => value.toFixed(2),
-  },
+interface jobRowData {
+  job_title: string;
+  company_name: string;
+  tech_stack: string;
+  salary: string;
+  location: string;
+}
+
+const columns: readonly jobTableColumn[] = [
+  { id: "company_name", label: "Company Name", minWidth: 100 },
+  { id: "job_title", label: "Job Title", minWidth: 100 },
+  { id: "salary", label: "Salary", minWidth: 100 },
+  { id: "tech_stack", label: "Tech Stack", minWidth: 170 },
+  { id: "location", label: "Location", minWidth: 170 },
 ];
 
-interface Data {
-  name: string;
-  code: string;
-  population: number;
-  size: number;
-  density: number;
-}
-
-function createData(
-  name: string,
-  code: string,
-  population: number,
-  size: number,
-): Data {
-  const density = population / size;
-  return { name, code, population, size, density };
-}
-
-
-
-export default function StickyHeadTable({descriptions:}) {
+/**
+ * `StickyHeadTable` React Component
+ *
+ * Props:
+ *   descriptions (JobTableProps): Array of job posting objects based on `JobPostingsInterface`.
+ *
+ * State:
+ *   - page (number): Current page in table pagination.
+ *   - rowsPerPage (number): Rows displayed per page in the table.
+ *
+ * Functions:
+ *   - createRow(description): Converts a job description object to table row format.
+ *   - handleChangePage(event, newPage): Updates the page number for pagination.
+ *   - handleChangeRowsPerPage(event): Adjusts the number of rows per page.
+ *
+ * Renders:
+ *   - A paginated table with sticky headers, displaying job postings.
+ *   - Pagination controls for navigating pages.
+ *
+ * Usage:
+ *   <StickyHeadTable descriptions={arrayOfJobDescriptions} />
+ */
+export default function StickyHeadTable({ descriptions }: JobTableProps) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
+  function createRow(description: JobPostingsInterface): jobRowData {
+    const { job_title, company_name, json_response } = description;
+
+    const tech_stack = json_response?.tech_stack
+      ? json_response.tech_stack.join(", ")
+      : "";
+    const salary = JSON.stringify(json_response?.salary) || "";
+    const location = json_response?.location || "";
+
+    return {
+      job_title: job_title || "",
+      company_name,
+      tech_stack,
+      salary,
+      location,
+    };
+  }
+
+  /**
+   * helper function to handle changing the page
+   */
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
   };
 
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+  /**
+   * helper function to adjust the number of rows per page
+   */
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
 
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+    <Paper sx={{ width: "100%", overflow: "hidden" }}>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
@@ -99,18 +118,18 @@ export default function StickyHeadTable({descriptions:}) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
+            {descriptions
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
+              .map((d) => {
+                let rowData = createRow(d);
+
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                  <TableRow hover role="checkbox" tabIndex={-1} key={d.id}>
                     {columns.map((column) => {
-                      const value = row[column.id];
+                      const value = rowData[column.id];
                       return (
                         <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === 'number'
-                            ? column.format(value)
-                            : value}
+                          {value}
                         </TableCell>
                       );
                     })}
@@ -123,7 +142,7 @@ export default function StickyHeadTable({descriptions:}) {
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
-        count={rows.length}
+        count={descriptions.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
