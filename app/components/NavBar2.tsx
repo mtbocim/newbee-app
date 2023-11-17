@@ -87,7 +87,6 @@ function ResponsiveAppBar() {
     <AppBar
       position='static'
       sx={{
-        bgcolor: "hsl(var(--n))",
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
       }}>
@@ -143,12 +142,15 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
+
+
+
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page.name}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}>
+                sx={{ my: 2, color: "inherit", display: "block" }}>
                 <Link
                   key={page.name}
                   href={page.path}
@@ -162,8 +164,8 @@ function ResponsiveAppBar() {
 
           <Box sx={{ flexGrow: 0 }}>
                 <Search
-                  sx={{
-                    bgcolor: "hsl(var(--in))",
+              sx={{
+                    background: "#F5F5F5",
                     borderRadius: 2,
                   }}>
                   <SearchIconWrapper>
