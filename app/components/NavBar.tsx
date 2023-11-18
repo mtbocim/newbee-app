@@ -58,6 +58,11 @@ export default function NavBar() {
                 </a>
               </li>
               <li>
+                <a href="/listings">
+                  <b>JOB LISTINGS</b>
+                </a>
+              </li>
+              <li>
                 <a href="/devs">
                   <b>DEVS</b>
                 </a>
@@ -77,6 +82,11 @@ export default function NavBar() {
               <li>
                 <a className="text-l" href="/">
                   <b>HOME</b>
+                </a>
+              </li>
+              <li>
+                <a href="/listings">
+                  <b>JOB LISTINGS</b>
                 </a>
               </li>
               <li>
