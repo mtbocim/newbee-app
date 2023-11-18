@@ -20,17 +20,21 @@ export default async function Listings({
             },
             {
               OR: [
-                {
-                  job_description: {
-                    search: `%${query}%`,
-                  },
-                },
-                {
-                  json_response: {
-                    path: ["tech_stack"],
-                    array_contains: [`%${query}%`],
-                  },
-                },
+                query
+                  ? {
+                      job_description: {
+                        search: `%${query}%`,
+                      },
+                    }
+                  : {},
+                query
+                  ? {
+                      json_response: {
+                        path: ["tech_stack"],
+                        array_contains: [`%${query}%`],
+                      },
+                    }
+                  : {},
               ],
             },
           ],
