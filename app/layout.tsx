@@ -1,20 +1,9 @@
 "use client";
-import type { Metadata } from "next";
-import { Geologica } from "next/font/google";
 import "@/app/styles/globals.css";
-import NavBar2 from "./components/NavBar2";
+import NavBar from "./components/NavBar";
 import * as React from "react";
-import { red } from "@mui/material/colors";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Container } from "@mui/system";
-import ScopedCssBaseline from "@mui/material/ScopedCssBaseline";
-import { lime, purple } from "@mui/material/colors";
-
-const geologicaFont = Geologica({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
+import CssBaseline from "@mui/material/CssBaseline";
 
 const theme = createTheme({
   palette: {
@@ -22,23 +11,25 @@ const theme = createTheme({
     primary: {
       main: "#ffbe0b",
       light: "#ffbe0b",
-      contrastText: "#4b5563",
+      contrastText: "#304d4a",
     },
     secondary: {
       main: "#00796b",
     },
     background: {
+      // Table head, opage background color
       default: "#ffedd5",
-      paper: "F5F5F5",
+      paper: "#F5F5F5",
     },
     info: {
       main: "#009688",
       dark: "#10776f",
     },
   },
+  typography: {
+    fontFamily: '"Montserrat", sans-serif',
+  },
 });
-
-
 
 export default function RootLayout({
   children,
@@ -47,16 +38,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <ThemeProvider theme={theme}>
-        <body>
-          <ScopedCssBaseline>
-            <NavBar2 />
-            <div className='flex justify-center items-center h-screen'>
+      <head>
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link rel='preconnect' href='https://fonts.gstatic.com' />
+        <link
+          href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'
+          rel='stylesheet'
+        />
+      </head>
+      <body>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <NavBar />
+          <div className='flex justify-center items-center h-screen'>
             {children}
-            </div>
-          </ScopedCssBaseline>
-        </body>
-      </ThemeProvider>
+          </div>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

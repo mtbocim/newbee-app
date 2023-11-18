@@ -5,6 +5,14 @@ export default function NavBar() {
     <>
       <div className='navbar shadow rounded-navbar bg-neutral'>
         <div className='navbar-start'>
+          <a href='/'>
+          <Image
+              src='/Bee_and_Text_Logo_transparent.png'
+              width={300}
+              height={250}
+              alt='NewBee logo'
+            />
+          </a>
           <div className='dropdown'>
             <label tabIndex={0} className='btn btn-ghost lg:hidden'>
               <svg
@@ -25,38 +33,37 @@ export default function NavBar() {
               tabIndex={0}
               className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'>
               <li>
-                <a href="/">Home</a>
+                <a href="/"><b>HOME</b></a>
               </li>
               <li>
-                <a href="/about">About</a>
+                <a href="/devs"><b>DEVS</b></a>
+              </li>
+              <li>
+                <a href="/about"><b>ABOUT</b></a>
               </li>
             </ul>
           </div>
-          <a className='btn btn-ghost' href='/'>
-          <Image
-              src='/Bee_and_Text_Logo_transparent.png'
-              width={300}
-              height={250}
-              alt='NewBee logo'
-            />
-          </a>
         </div>
+
+        <div className='flex navbar-end'>
         <div className='navbar-center hidden lg:flex'>
           <ul className='menu menu-horizontal px-1'>
             <li>
-              <a className='text-xl' href="/">Home</a>
+              <a className='text-l' href="/"><b>HOME</b></a>
             </li>
             <li>
-              <a className='text-xl' href="/about">About</a>
+                <a className='text-l' href="/devs"><b>DEVS</b></a>
+              </li>
+            <li>
+              <a className='text-l' href="/about"><b>ABOUT</b></a>
             </li>
           </ul>
         </div>
-        <div className='flex navbar-end'>
           <div className='form-control'>
             <input
               type='text'
               placeholder='Search'
-              className='input input-bordered w-24 md:w-auto'
+              className='input input-bordered rounded-box w-24 md:w-auto'
             />
           </div>
         </div>
