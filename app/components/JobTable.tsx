@@ -101,17 +101,32 @@ export default function StickyHeadTable({ descriptions }: JobTableProps) {
   };
 
   return (
-    <Paper sx={{ width: "100%", overflow: "hidden" }}>
-      <TableContainer sx={{ maxHeight: 440 }}>
-        <Table stickyHeader aria-label="sticky table">
+    <Paper sx={{ width: "90%", overflow: "hidden" }}>
+      <TableContainer sx={{ maxHeight: 680 }}>
+        <Table
+          stickyHeader
+          aria-label='sticky table'
+          sx={{
+            background: "#fcf5ec",
+            "& thead .MuiTableCell-root": {
+              // This targets TableCell components in the TableHead
+              color: "white", // Replace 'desired-color' with your color
+              fontWeight: "bold",
+              fontSize: "1.1rem"
+            },
+          }}>
           <TableHead>
             <TableRow>
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
                   align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                >
+                  style={{
+                    background: "#304d4a",
+                    minWidth: column.minWidth,
+                    border: "1px solid white",
+                    whiteSpace: "nowrap",  // Keeps text in a single line without wrapping
+                  }}>
                   {column.label}
                 </TableCell>
               ))}
@@ -124,11 +139,14 @@ export default function StickyHeadTable({ descriptions }: JobTableProps) {
                 let rowData = createRow(d);
 
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={d.id}>
+                  <TableRow hover role='checkbox' tabIndex={-1} key={d.id}>
                     {columns.map((column) => {
                       const value = rowData[column.id];
                       return (
-                        <TableCell key={column.id} align={column.align}>
+                        <TableCell
+                          key={column.id}
+                          align={column.align}
+                          style={{ border: "1px solid white" }}>
                           {value}
                         </TableCell>
                       );
@@ -141,7 +159,7 @@ export default function StickyHeadTable({ descriptions }: JobTableProps) {
       </TableContainer>
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
-        component="div"
+        component='div'
         count={descriptions.length}
         rowsPerPage={rowsPerPage}
         page={page}

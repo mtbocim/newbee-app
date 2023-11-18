@@ -4,15 +4,14 @@
 
 body {
   height: 100vh;
-  background-color: #ffedd5;
 }
 
 .centered-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Adjust the height as needed */
-}
+  height: 100vh;
+ }
 
 .grid-centered {
   display: grid;
@@ -36,7 +35,7 @@ body {
   border-bottom-right-radius: 20px;
 }
 
-table {
+/* table {
   margin: 10px;
 }
 
@@ -47,8 +46,9 @@ tr td{
 th {
    background-color: #4b5563;
    color: #f3f3f3;
+} */
+
+li {
+  color: #304d4a
 }
-
-
-
 

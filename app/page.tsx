@@ -4,16 +4,16 @@ import { Button } from "@mui/material";
 import Link from "next/link";
 
 export default async function Home() {
-  const results = process.env.DATABASE_URL
-    ? ((await prisma.job_postings.findMany({
-        where: {
-          json_response: {
-            path: ["apply"],
-            equals: "True",
-          },
-        },
-      })) as Array<JobPostingsInterface>)
-    : [];
+  // const results = process.env.DATABASE_URL
+    // ? ((await prisma.job_postings.findMany({
+    //     where: {
+    //       json_response: {
+    //         path: ["apply"],
+    //         equals: "True",
+    //       },
+    //     },
+    //   })) as Array<JobPostingsInterface>)
+    // : [];
   return (
     <>
       <Link href="/listings" passHref>
