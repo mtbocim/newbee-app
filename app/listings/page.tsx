@@ -7,7 +7,8 @@ export default async function Listings({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const query = searchParams?.q || "";
+  const query = searchParams?.q as string || "";
+  const queryParse = query.split(" ").join(" & ")
   const results = process.env.DATABASE_URL
     ? ((await prisma.job_postings.findMany({
         where: {
@@ -20,18 +21,18 @@ export default async function Listings({
             },
             {
               OR: [
-                query
+                queryParse
                   ? {
                       job_description: {
-                        search: `%${query}%`,
+                        search: `%${queryParse}%`,
                       },
                     }
                   : {},
-                query
+                queryParse
                   ? {
                       json_response: {
                         path: ["tech_stack"],
-                        array_contains: [`%${query}%`],
+                        array_contains: [`%${queryParse}%`],
                       },
                     }
                   : {},
