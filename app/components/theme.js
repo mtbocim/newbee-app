@@ -12,8 +12,8 @@ const theme = createTheme({
       main: "#00796b",
     },
     background: {
-      // Table head, opage background color
-      default: "#ffedd5",
+      // Table head, page background color
+      default: "#ffffff",  //"#ffedd5"<=== I really think (and so does MUI) the white is better
       paper: "#F5F5F5",
     },
     info: {

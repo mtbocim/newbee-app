@@ -4,14 +4,16 @@
 
 body {
   height: 100vh;
+  background-color: #ffffff;
 }
 
-.centered-content {
+/* .centered-content {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
  }
+ */
 
 .grid-centered {
   display: grid;
@@ -51,4 +53,35 @@ th {
 li {
   color: #304d4a
 }
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  color: #aaa;
+}
+
+.input {
+  padding-left: 35px; /* Adjust so there's space for the icon */
+}
+
+@media (max-width: 600px) {
+  .input {
+    width: 90%;
+    padding-left: 45px;
+  }
+}
+
+
+
+
+
+
 
