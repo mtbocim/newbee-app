@@ -1,35 +1,7 @@
-"use client";
 import "@/app/styles/globals.css";
 import NavBar from "./components/NavBar";
 import * as React from "react";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-
-const theme = createTheme({
-  palette: {
-    mode: "light",
-    primary: {
-      main: "#ffbe0b",
-      light: "#ffbe0b",
-      contrastText: "#304d4a",
-    },
-    secondary: {
-      main: "#00796b",
-    },
-    background: {
-      // Table head, opage background color
-      default: "#ffedd5",
-      paper: "#F5F5F5",
-    },
-    info: {
-      main: "#009688",
-      dark: "#10776f",
-    },
-  },
-  typography: {
-    fontFamily: '"Montserrat", sans-serif',
-  },
-});
+import ThemeWrapper from "./components/ThemeWrapper";
 
 export default function RootLayout({
   children,
@@ -47,13 +19,12 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
+        <ThemeWrapper>
           <NavBar />
           <div className='flex justify-center items-center h-screen'>
             {children}
           </div>
-        </ThemeProvider>
+          </ThemeWrapper>
       </body>
     </html>
   );
