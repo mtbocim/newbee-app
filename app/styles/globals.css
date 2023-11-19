@@ -4,42 +4,29 @@
 
 body {
   height: 100vh;
+  background-color: #ffffff;
 }
 
-.centered-content {
+/* .centered-content {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
  }
+ */
 
 .grid-centered {
   display: grid;
   height: 80vh;
 }
 
-/* .card {
+.card {
     width: 400px;
     padding: 20px;
     margin: 5px;
     color: #ffffff;
     font-size: 12px;
-} */
-
-/* .card-container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-} */
-
-/* Add this to your global CSS or a CSS module */
-.fixed-size-card {
-  max-width: 400px;
-  min-widht: 200px; /* Adjust the width as needed */
-  height: 400px;
-  min-height: 300px; /* Adjust the height as needed */
 }
-
 
 .nav-link {
   padding: 10px;
@@ -67,9 +54,34 @@ li {
   color: #304d4a
 }
 
-.avatar {
-  width: 100px;
-  height: 100px;
-  margin-top: 30px;
-  padding-left: 20px;
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: 5px;
 }
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  color: #aaa;
+}
+
+.input {
+  padding-left: 35px; /* Adjust so there's space for the icon */
+}
+
+@media (max-width: 600px) {
+  .input {
+    width: 90%;
+    padding-left: 45px;
+  }
+}
+
+
+
+
+
+
+
