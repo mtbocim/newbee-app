@@ -7,10 +7,10 @@ export default function ContributorCard({
   contributorData: ContributorInterface;
   }) {
   return (
-  <div className='card card-side bg-info shadow-xl'>
+  <div className='card card-side bg-info'>
       <div className="avatar">
-        <div className="w-24 rounded-full shadow-xl">
-          <Image src={contributorData.avatar_url} alt='user' width={1000} height={0} />
+        <div className="w-48 rounded-full shadow-xl">
+          <Image src={contributorData.avatar_url} alt='user' width={100} height={100} />
         </div>
     </div>
     <div className='card-body'>

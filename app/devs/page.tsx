@@ -1,28 +1,59 @@
 "use client";
 
-import * as React from 'react';
-import { experimentalStyled as styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
+import React, { useEffect, useState } from 'react';
+import ContributorInterface from '../interfaces/ContributorInterface';
+import ContributorCard from '../components/ContributorCard';
+import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Unstable_Grid2';
+import Box from '@mui/material/Box';
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
-  padding: theme.spacing(2),
-  marginLeft: 40,
-  marginRight: 40,
+  padding: theme.spacing(1),
   textAlign: 'center',
   color: theme.palette.text.secondary,
 }));
 
-export default function ResponsiveGrid() {
+const contributors = [
+  "stzheng716",
+  "MGHermanMancarella",
+  "CodingHobo",
+  "camrandev",
+  "hbnnguyen",
+  "mtbocim",
+];
+
+export default function Devs() {
+  const [contribData, setContribData] = useState<ContributorInterface[]>([]);
+
+  useEffect(() => {
+    async function fetchContributors() {
+      try {
+        const responses = await Promise.all(
+          contributors.map(username => fetch(`https://api.github.com/users/${username}`))
+        );
+        const data = await Promise.all(responses.map(res => res.json())) as ContributorInterface[];
+        setContribData(data);
+      } catch (error) {
+        console.error('Error fetching contributors:', error);
+        // Optionally handle error state
+      }
+    }
+
+    fetchContributors();
+  }, []);
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-        {Array.from(Array(6)).map((_, index) => (
-          <Grid xs={2} sm={4} md={4} key={index}>
-            <Item>xs=2</Item>
+    <Box sx={{ width: '80%', padding: 2 }}>
+      <Grid container spacing={2}>
+        {contribData.map(contributor => (
+          <Grid item xs={6} sm={4} md={4} lg={4} key={contributor.login}>
+            <div className={`card card-side bg-info shadow-xl fixed-size-card`}>
+              <ContributorCard contributorData={contributor} />
+            </div>
+
           </Grid>
         ))}
       </Grid>

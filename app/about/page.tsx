@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import ContributorCard from '../components/ContributorCard';
 
 const contributors = [
@@ -18,7 +17,6 @@ export default async function About() {
     }
 
     return( <div className="grid-centered">
-        About page
         {contribData.map(contributor => {
             console.log(contributor)
             return(
