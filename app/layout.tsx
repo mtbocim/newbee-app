@@ -21,7 +21,7 @@ export default function RootLayout({
       <body>
         <ThemeWrapper>
           <NavBar />
-          <div className='flex justify-center items-center h-screen'>
+          <div className='centered-content'>
             {children}
           </div>
           </ThemeWrapper>
