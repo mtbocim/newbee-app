@@ -101,13 +101,13 @@ export default function StickyHeadTable({ descriptions }: JobTableProps) {
   };
 
   return (
-    <Paper sx={{ width: "90%", overflow: "hidden" }}>
+    <Paper sx={{ width: "90%", overflow: "hidden", margin: 5 }}>
       <TableContainer sx={{ maxHeight: 680 }}>
         <Table
           stickyHeader
           aria-label='sticky table'
           sx={{
-            background: "#fcf5ec",
+            background: "#efeeee",
             "& thead .MuiTableCell-root": {
               // This targets TableCell components in the TableHead
               color: "white", // Replace 'desired-color' with your color
@@ -122,7 +122,7 @@ export default function StickyHeadTable({ descriptions }: JobTableProps) {
                   key={column.id}
                   align={column.align}
                   style={{
-                    background: "#304d4a",
+                    background: "#bab6b6",
                     minWidth: column.minWidth,
                     border: "1px solid white",
                     whiteSpace: "nowrap",  // Keeps text in a single line without wrapping

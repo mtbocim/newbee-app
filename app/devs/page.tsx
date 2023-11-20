@@ -1,31 +1,48 @@
 "use client";
 
-import * as React from 'react';
-import { experimentalStyled as styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Unstable_Grid2';
+import React, { useEffect, useState } from "react";
+import ContributorInterface from "../interfaces/ContributorInterface";
+import ContributorCard from "../components/ContributorCard";
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  marginLeft: 40,
-  marginRight: 40,
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+const contributors = [
+  "stzheng716",
+  "MGHermanMancarella",
+  "CodingHobo",
+  "camrandev",
+  "hbnnguyen",
+  "mtbocim",
+];
 
-export default function ResponsiveGrid() {
+export default function Devs() {
+  const [contribData, setContribData] = useState<ContributorInterface[]>([]);
+
+  useEffect(() => {
+    async function fetchContributors() {
+      try {
+        const responses = await Promise.all(
+          contributors.map(username =>
+            fetch(`https://api.github.com/users/${username}`)
+          )
+        );
+        const data = await Promise.all(
+          responses.map(res => res.json())
+        ) as ContributorInterface[];
+        setContribData(data);
+      } catch (error) {
+        console.error("Error fetching contributors:", error);
+      }
+    }
+
+    fetchContributors();
+  }, []);
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-        {Array.from(Array(6)).map((_, index) => (
-          <Grid xs={2} sm={4} md={4} key={index}>
-            <Item>xs=2</Item>
-          </Grid>
+    <div className="p-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 m:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+        {contribData.map(contributor => (
+          <ContributorCard key={contributor.login} contributorData={contributor} />
         ))}
-      </Grid>
-    </Box>
+      </div>
+    </div>
   );
 }
