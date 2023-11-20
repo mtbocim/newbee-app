@@ -7,7 +7,7 @@ export default function ContributorCard({
   contributorData,
 }: {
   contributorData: ContributorInterface;
-}) {
+  }) {
   return (
     <div className='card card-side bg-info w-64 h-64 flex'>
       <div className='w-1/3 flex justify-center p-2'>
@@ -19,12 +19,14 @@ export default function ContributorCard({
       </div>
       <div className='card-body'>
         <h2 className='card-title'>{contributorData.name}</h2>
-        <h3>{contributorData.location}</h3>
+        <h3><b>{contributorData.location}</b></h3>
         <p className='card-info'>{contributorData.bio}</p>
         <span className='card-info'>
           <a href={contributorData.html_url} target="_blank"><GitHubIcon />
           </a> <a
             href={contributorData.blog} target="_blank"><WebIcon />
+          </a> <a
+            href='mailto:{contributorData.email}' target="_blank"><MailOutlineIcon  />
           </a>
         </span>
       </div>
