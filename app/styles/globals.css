@@ -27,6 +27,7 @@ body {
     color: #ffffff;
     font-size: 13px;
     background-color: #bab6b6;
+    box-shadow: 1px 4px 12px #686767;
 }
 
 .card-info {
@@ -39,6 +40,7 @@ body {
 
 .avatar {
   margin-top: 0px;
+  box-shadow: 1px 2px 10px black;
 }
 
 .nav-link {

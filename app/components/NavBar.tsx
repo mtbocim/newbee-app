@@ -51,11 +51,11 @@ export default function NavBar() {
             <ul
               tabIndex={0}
               className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'>
-              <li>
+              {/* <li>
                 <a href='/'>
                   <b>HOME</b>
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a href='/listings'>
                   <b>JOB LISTINGS</b>
@@ -78,11 +78,11 @@ export default function NavBar() {
         <div className='flex navbar-end'>
           <div className='navbar-center hidden lg:flex'>
             <ul className='menu menu-horizontal px-1'>
-              <li>
+              {/* <li>
                 <a className='text-l' href='/'>
                   <b>HOME</b>
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a href='/listings'>
                   <b>JOB LISTINGS</b>
