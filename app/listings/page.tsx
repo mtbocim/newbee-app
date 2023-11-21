@@ -1,6 +1,7 @@
 import prisma from "@/app/lib/prisma";
 import JobPostingsInterface from "@/app/interfaces/JobPostingsInterface";
 import JobTable from "@/app/components/JobTable";
+import SearchBar from "../components/SearchBar";
 
 export default async function Listings({
   searchParams,
@@ -44,6 +45,7 @@ export default async function Listings({
     : [];
   return (
     <>
+      <SearchBar/>
       <JobTable descriptions={results} />
     </>
   );
