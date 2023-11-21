@@ -1,25 +1,6 @@
-"use client";
-
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import SearchIcon from "@mui/icons-material/Search";
 
 export default function NavBar() {
-  const router = useRouter();
-
-  const [searchTerm, setSearchTerm] = useState("");
-
-  function handleInput(event: React.ChangeEvent<HTMLInputElement>) {
-    setSearchTerm(() => event.target.value);
-  }
-
-  function handleSubmit(event: React.FormEvent) {
-    event.preventDefault();
-    router.push(`/listings?q=${searchTerm}`);
-    setSearchTerm(() => "");
-  }
-
   return (
     <>
       <div className='navbar shadow rounded-navbar bg-neutral'>
@@ -99,20 +80,6 @@ export default function NavBar() {
                 </a>
               </li>
             </ul>
-          </div>
-          <div className='form-control'>
-            <form onSubmit={handleSubmit}>
-              <div className='search-container'>
-                <SearchIcon className='search-icon' />
-                <input
-                  type='text'
-                  placeholder='Search'
-                  className='input input-bordered rounded-box w-24 md:w-auto'
-                  value={searchTerm}
-                  onInput={handleInput}
-                />
-              </div>
-            </form>
           </div>
         </div>
       </div>
