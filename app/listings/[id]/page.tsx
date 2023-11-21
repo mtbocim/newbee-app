@@ -10,22 +10,24 @@ export default async function Listing({ params }: { params: { id: string } }) {
   }
 
   try {
-    const result = await prisma.job_postings.findFirst({
+    const result = (await prisma.job_postings.findFirst({
       where: {
         id: id,
       },
-    }) as JobPostingsInterface;
+    })) as JobPostingsInterface;
 
-    if (result === null){
-        //Add handling here for if result comes back empty.
-        //Back to listings page? No result found error with button?
-        return(
-            <div>
-                No such job found
-                <br/>
-                <a href='/listings' style={{color:'blue'}}>Back to listings</a>
-            </div>
-        )
+    if (result === null) {
+      //Add handling here for if result comes back empty.
+      //Back to listings page? No result found error with button?
+      return (
+        <div>
+          No such job found
+          <br />
+          <a href="/listings" style={{ color: "blue" }}>
+            Back to listings
+          </a>
+        </div>
+      );
     }
 
     return (
