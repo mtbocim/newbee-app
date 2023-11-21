@@ -32,11 +32,11 @@ interface jobRowData {
 }
 
 const columns: readonly jobTableColumn[] = [
-  { id: "company_name", label: "Company Name", minWidth: 100 },
   { id: "job_title", label: "Job Title", minWidth: 100 },
-  { id: "salary", label: "Salary", minWidth: 100 },
   { id: "tech_stack", label: "Tech Stack", minWidth: 170 },
   { id: "location", label: "Location", minWidth: 170 },
+  { id: "company_name", label: "Company", minWidth: 100 },
+  { id: "salary", label: "Salary", minWidth: 100 },
 ];
 
 /**
@@ -102,7 +102,7 @@ export default function StickyHeadTable({ descriptions }: JobTableProps) {
 
   return (
     <Paper sx={{ width: "90%", overflow: "hidden", margin: 5 }}>
-      <TableContainer sx={{ maxHeight: 680 }}>
+      <TableContainer sx={{ maxHeight: 900 }}>
         <Table
           stickyHeader
           aria-label='sticky table'
