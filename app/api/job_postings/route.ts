@@ -1,8 +1,8 @@
 import prisma from '@/app/lib/prisma'
 import { NextRequest, NextResponse } from 'next/server'
-import JobPostingsInterface from '@/app/interfaces/JobPostingsInterface';
+import JobListingsInterface from '@/app/interfaces/JobListingsInterface';
 export async function GET(request: NextRequest) {
-    
+
     const searchParams = request.nextUrl.searchParams
     const query = searchParams.get('query')
 
@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
                     },
                 ],
             },
-        })) as Array<JobPostingsInterface>)
+        })) as Array<JobListingsInterface>)
         : [];
     return NextResponse.json(results)
 }

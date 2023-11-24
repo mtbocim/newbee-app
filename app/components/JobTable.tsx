@@ -8,8 +8,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-
-import JobPostingsInterface from "../interfaces/JobPostingsInterface";
+import JobListingsInterface from "../interfaces/JobListingsInterface";
 
 interface jobTableColumn {
   id: "job_title" | "company_name" | "tech_stack" | "location" | "salary";
@@ -20,7 +19,7 @@ interface jobTableColumn {
 }
 
 interface JobTableProps {
-  descriptions: Array<JobPostingsInterface>;
+  descriptions: Array<JobListingsInterface>;
 }
 
 interface jobRowData {
