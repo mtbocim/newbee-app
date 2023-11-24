@@ -1,6 +1,6 @@
 import prisma from "@/app/lib/prisma";
 import JobListingsInterface from "@/app/interfaces/JobListingsInterface";
-import JobTable from "@/app/components/JobTable";
+import JobTable2 from "@/app/components/JobTable";
 import SearchBar from "../components/SearchBar";
 import HomeHero from "../components/HomeHero";
 
@@ -48,7 +48,7 @@ export default async function Listings({
     <>
       <HomeHero />
       <SearchBar/>
-      <JobTable descriptions={results} />
+      <JobTable2 descriptions={results} />
     </>
   );
 }
