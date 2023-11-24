@@ -6,12 +6,11 @@ export default interface JobPostingsInterface {
     job_scraped_date: Date;
     company_name: string;
     job_description: string | null;
-    json_response?: {
-        apply?: string;
-        salary?: string;
-        location?: string;
-        department?: string;
-        tech_stack?: string[];
+    json_response: {
+        apply: string | null | undefined;
+        salary: string | null | undefined;
+        location: string | null | undefined;
+        department: string | null | undefined;
+        tech_stack: string[] | null | undefined;
       };
 }
-  
