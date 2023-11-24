@@ -1,4 +1,4 @@
-import JobPostingsInterface from "../interfaces/JobPostingsInterface";
+import JobListingsInterface from "../interfaces/JobListingsInterface";
 import TagDataInterface from "../interfaces/TagDataInterface";
 
 export default function JobDescription({
@@ -6,14 +6,14 @@ export default function JobDescription({
   selectedLocationTags,
   selectedTechTags,
 }: {
-  jobDescription: JobPostingsInterface;
+  jobDescription: JobListingsInterface;
   selectedLocationTags: Array<TagDataInterface>;
   selectedTechTags: Array<TagDataInterface>;
 }) {
   const techTags = selectedTechTags.map((i) => i.value);
   const locationTags = selectedLocationTags.map((i) => i.value);
 
-  
+
   const hasTech = jobDescription.json_response?.tech_stack
     ? jobDescription.json_response?.tech_stack.some((value) =>
         techTags.includes(value)
