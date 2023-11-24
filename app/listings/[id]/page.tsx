@@ -33,11 +33,12 @@ export default async function Listing({ params }: { params: { id: string } }) {
     return (
       <div>
         {/* Job listing components here */}
-        Hi :-)
-        <br />
-        {
-          result?.job_title /*Placeholder line to see listing is correctly queried*/
-        }
+        <h1>{result.job_title}</h1>
+        <h3>{result.company_name}</h3>
+        <div>{result.json_response.salary}</div>
+        <div>{result.json_response.tech_stack.join(', ')}</div>
+        <div>{result.job_description}</div>
+        <a href={result.job_url}>click here to apply </a>
       </div>
     );
   } catch {
