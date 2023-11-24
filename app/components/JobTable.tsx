@@ -4,9 +4,11 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import JobListingsInterface from "../interfaces/JobListingsInterface";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 
-// Column definitions
+/**
+ * define the columns per MUI specifications
+ */
 const columns: GridColDef[] = [
   { field: "job_title", headerName: "Job Title", width: 150 },
   { field: "company_name", headerName: "Company", width: 150 },
@@ -35,15 +37,19 @@ const columns: GridColDef[] = [
 interface JobTableProps {
   descriptions: Array<JobListingsInterface>;
 }
+
 /**
  *MUI Datagrid component used to render the jobs table
+ * docs: https://mui.com/x/react-data-grid/
+ * we are using the MIT version (Free Forever)
  */
-export default function JobListingsDataGrid({ descriptions }: JobTableProps) {
+export default function JobTable({ descriptions }: JobTableProps) {
   const router = useRouter();
+
   /**
    * build the rows for the data grid
    */
-  const rows = descriptions.map((description, index) => ({
+  const rows = descriptions.map((description) => ({
     id: description.id,
     job_title: description.job_title,
     tech_stack: description.json_response.tech_stack,
@@ -52,10 +58,12 @@ export default function JobListingsDataGrid({ descriptions }: JobTableProps) {
     salary: description.json_response.salary,
   }));
 
-  const handleRowClick = (params:any) => {
-    router.push(`/listings/${params.id}`); // Adjust URL as needed
-  }
-
+  /**
+   * click handler to handle navigation to job details pages
+   */
+  const handleRowClick = (params: any) => {
+    router.push(`/listings/${params.id}`);
+  };
 
   return (
     <Box sx={{ height: 400, width: "100%" }}>
