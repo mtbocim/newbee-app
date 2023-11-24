@@ -6,7 +6,9 @@ import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import JobListingsInterface from "../interfaces/JobListingsInterface";
 import { useRouter } from "next/navigation";
 
-// Column definitions
+/**
+ * define the columns per MUI specifications
+ */
 const columns: GridColDef[] = [
   { field: "job_title", headerName: "Job Title", width: 150 },
   { field: "company_name", headerName: "Company", width: 150 },
@@ -38,8 +40,10 @@ interface JobTableProps {
 
 /**
  *MUI Datagrid component used to render the jobs table
+ * docs: https://mui.com/x/react-data-grid/
+ * we are using the MIT version (Free Forever)
  */
-export default function JobListingsDataGrid({ descriptions }: JobTableProps) {
+export default function JobTable({ descriptions }: JobTableProps) {
   const router = useRouter();
 
   /**
