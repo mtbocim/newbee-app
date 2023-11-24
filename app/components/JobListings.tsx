@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import JobDescription from "./JobDescription";
-import JobPostingsInterface from "../interfaces/JobPostingsInterface";
+import JobListingsInterface from "../interfaces/JobListingsInterface";
 import TagDataInterface from "../interfaces/TagDataInterface";
 import dynamic from 'next/dynamic'
 
@@ -30,9 +30,9 @@ const Select = dynamic(
 export default function JobListings({
   jobListingData,
 }: {
-  jobListingData: Array<JobPostingsInterface>;
+  jobListingData: Array<JobListingsInterface>;
 }) {
-  const [data, setData] = useState<Array<JobPostingsInterface>>([]);
+  const [data, setData] = useState<Array<JobListingsInterface>>([]);
 
   const [techStackTags, setTechStackTags] = useState<Array<TagDataInterface>>(
     []
@@ -111,7 +111,7 @@ export default function JobListings({
       <div style={{ display: "flex", flexFlow: "column" }}>
         {selectedLocations.length !== 0 &&
           selectedTech.length !== 0 &&
-          data.map((item: JobPostingsInterface, i) => (
+          data.map((item: JobListingsInterface, i) => (
             <JobDescription
               key={i}
               jobDescription={item}

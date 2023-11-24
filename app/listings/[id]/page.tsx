@@ -1,5 +1,5 @@
 import prisma from "@/app/lib/prisma";
-import JobPostingsInterface from "@/app/interfaces/JobPostingsInterface";
+import JobListingsInterface from "@/app/interfaces/JobListingsInterface";
 import { redirect } from "next/navigation";
 
 export default async function Listing({ params }: { params: { id: string } }) {
@@ -14,7 +14,7 @@ export default async function Listing({ params }: { params: { id: string } }) {
       where: {
         id: id,
       },
-    })) as JobPostingsInterface;
+    })) as JobListingsInterface;
 
     if (result === null) {
       //Add handling here for if result comes back empty.
