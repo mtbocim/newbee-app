@@ -94,17 +94,17 @@ interface JobTableProps {
 }
 
 /**
-  *MUI Datagrid component used to render the jobs table
+ *MUI Datagrid component used to render the jobs table
  * docs: https://mui.com/x/react-data-grid/
  * we are using the MIT version (Free Forever)
  */
-export default function JobListingsDataGrid({ descriptions }: JobTableProps) {
+export default function JobTable({ descriptions }: JobTableProps) {
   const router = useRouter();
 
   /**
    * build the rows for the data grid
    */
-  const rows = descriptions.map((description, index) => ({
+  const rows = descriptions.map((description) => ({
     id: description.id,
     job_title: description.job_title,
     tech_stack: description.json_response.tech_stack,
@@ -113,12 +113,12 @@ export default function JobListingsDataGrid({ descriptions }: JobTableProps) {
     salary: description.json_response.salary,
   }));
 
-    /**
+  /**
    * click handler to handle navigation to job details pages
    */
   const handleRowClick = (params: any) => {
-    router.push(`/listings/${params.id}`); // Adjust URL as needed
-  }
+    router.push(`/listings/${params.id}`);
+  };
 
   return (
     <Box sx={{
