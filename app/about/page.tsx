@@ -1,3 +1,5 @@
+import Header from "../components/Header"
+
 export default async function About() {
-    return <h1>hi</h1>
+    return <Header pageName="About" />
 }

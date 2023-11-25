@@ -5,19 +5,20 @@ export default function NavBar() {
     <>
       <div className='navbar shadow rounded-navbar bg-neutral'>
         <div className='navbar-start'>
+          <div style={{paddingLeft: '20px'}}>
           <a href='/'>
             <Image
-              src='/Bee_and_Text_Logo_transparent.png'
-              width={300}
-              height={250}
+              src='/NewBee_title.png'
+              width={220}
+              height={220}
               alt='NewBee logo'
             />
-          </a>
+          </a></div>
           <div className='dropdown'>
             <label tabIndex={0} className='btn btn-ghost lg:hidden'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
-                className='h-5 w-5'
+                className='h-6 w-6'
                 fill='none'
                 viewBox='0 0 24 24'
                 stroke='currentColor'>
