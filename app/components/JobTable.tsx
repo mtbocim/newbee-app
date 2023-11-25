@@ -131,13 +131,16 @@ export default function JobTable({ descriptions }: JobTableProps) {
     }}>
       <DataGrid
       sx={{
-        border: 'none', // Remove border from the DataGrid itself
+          border: 'none',
+          // Remove border from the DataGrid itself
         '& .MuiDataGrid-columnHeaders': {
           backgroundColor: '#bab6b6',
+          color: '#ffffff',
           borderTopLeftRadius: "20px",
           borderTopRightRadius: "20px",
         },
         '& .MuiDataGrid-footerContainer': {
+          color: '#ffffff',
           backgroundColor: '#bab6b6',
           borderBottomLeftRadius: "20px",
           borderBottomRightRadius: "20px",

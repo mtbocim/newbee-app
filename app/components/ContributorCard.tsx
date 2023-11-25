@@ -1,13 +1,14 @@
 import ContributorInterface from "../interfaces/ContributorInterface";
-import GitHubIcon from '@mui/icons-material/GitHub';
-import WebIcon from '@mui/icons-material/Web';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import GitHubIcon from "@mui/icons-material/GitHub";
+import ImportantDevicesSharpIcon from '@mui/icons-material/ImportantDevicesSharp';
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
 
 export default function ContributorCard({
   contributorData,
 }: {
   contributorData: ContributorInterface;
-  }) {
+}) {
+  console.log(contributorData);
   return (
     <div className='card card-side bg-info w-64 h-64 flex'>
       <div className='w-1/3 flex justify-center p-2'>
@@ -19,15 +20,25 @@ export default function ContributorCard({
       </div>
       <div className='card-body'>
         <h2 className='card-title'>{contributorData.name}</h2>
-        <h3><b>{contributorData.location}</b></h3>
+        <h3>
+          <b>{contributorData.location}</b>
+        </h3>
         <p className='card-info'>{contributorData.bio}</p>
         <span className='card-info'>
-          <a href={contributorData.html_url} target="_blank"><GitHubIcon />
-          </a> <a
-            href={contributorData.blog} target="_blank"><WebIcon />
-          </a> <a
-            href='mailto:{contributorData.email}' target="_blank"><MailOutlineIcon  />
+          <a href={contributorData.html_url} target='_blank'>
+            <GitHubIcon style={{ marginRight: '10px' }} />
           </a>
+          <a href={contributorData.blog} target='_blank'>
+            <ImportantDevicesSharpIcon />
+          </a>
+
+          {/* The email addy is not accessible w/o token, or maybe some other workaround */}
+          {/* <a
+            href={`mailto:${contributorData.email}`}
+            target='_blank'
+            rel='noreferrer'>
+            <MailOutlineIcon />
+          </a> */}
         </span>
       </div>
     </div>

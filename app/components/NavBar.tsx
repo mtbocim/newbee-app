@@ -9,8 +9,8 @@ export default function NavBar() {
           <a href='/'>
             <Image
               src='/NewBee_title.png'
-              width={220}
-              height={220}
+              width={120}
+              height={120}
               alt='NewBee logo'
             />
           </a></div>
