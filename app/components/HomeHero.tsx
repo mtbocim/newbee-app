@@ -15,7 +15,7 @@ export default function HomeHero() {
             <Image
               src='/NewBee_title_and_slogan.png'
               alt='NewBee logo'
-              width={400}
+              width={300}
               height={200}
             />
             <p className='p-2'>
