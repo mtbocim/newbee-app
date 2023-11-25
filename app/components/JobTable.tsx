@@ -7,7 +7,9 @@ import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import JobListingsInterface from "../interfaces/JobListingsInterface";
 import { useRouter } from 'next/navigation';
 
-// Column definitions
+/**
+ * define the columns per MUI specifications
+ */
 const columns: GridColDef[] = [
   {
     field: "job_title",
@@ -92,11 +94,16 @@ interface JobTableProps {
 }
 
 /**
- * MUI DataGrid component used to render the jobs table
+  *MUI Datagrid component used to render the jobs table
+ * docs: https://mui.com/x/react-data-grid/
+ * we are using the MIT version (Free Forever)
  */
 export default function JobListingsDataGrid({ descriptions }: JobTableProps) {
   const router = useRouter();
 
+  /**
+   * build the rows for the data grid
+   */
   const rows = descriptions.map((description, index) => ({
     id: description.id,
     job_title: description.job_title,
@@ -106,6 +113,9 @@ export default function JobListingsDataGrid({ descriptions }: JobTableProps) {
     salary: description.json_response.salary,
   }));
 
+    /**
+   * click handler to handle navigation to job details pages
+   */
   const handleRowClick = (params: any) => {
     router.push(`/listings/${params.id}`); // Adjust URL as needed
   }
