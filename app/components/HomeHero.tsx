@@ -8,15 +8,15 @@ export default function HomeHero() {
           <Image
             src='/NewBee_bee.png'
             alt='NewBee logo'
-            width={200}
-            height={200}
+            width={140}
+            height={140}
           />
           <div>
             <Image
               src='/NewBee_title_and_slogan.png'
               alt='NewBee logo'
-              width={300}
-              height={200}
+              width={260}
+              height={260}
             />
             <p className='p-2'>
               This app was designed by bootcamp grads turned Software Engineers{" "}

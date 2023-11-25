@@ -10,8 +10,8 @@ export default function NavBar() {
               <button className='btn btn-neutral'>
             <Image
               src='/NewBee_title.png'
-              width={150}
-              height={220}
+              width={120}
+              height={120}
               alt='NewBee logo'
             /></button>
           </a></div>
