@@ -6,13 +6,14 @@ export default function NavBar() {
       <div className='navbar shadow rounded-navbar bg-neutral'>
         <div className='navbar-start'>
           <div style={{paddingLeft: '20px'}}>
-          <a href='/'>
+            <a href='/'>
+              <button className='btn btn-neutral'>
             <Image
               src='/NewBee_title.png'
               width={120}
               height={120}
               alt='NewBee logo'
-            />
+            /></button>
           </a></div>
           <div className='dropdown'>
             <label tabIndex={0} className='btn btn-ghost lg:hidden'>
