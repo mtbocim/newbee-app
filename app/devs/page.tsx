@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import ContributorInterface from "../interfaces/ContributorInterface";
 import ContributorCard from "../components/ContributorCard";
+import Header from "../components/Header";
 
 const contributors = [
   "stzheng716",
@@ -37,12 +38,22 @@ export default function Devs() {
   }, []);
 
   return (
+    <>
+    <Header pageName="Devs" />
     <div className="p-2">
-      <div className="grid grid-cols-1 sm:grid-cols-1 m:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+
+        <div className="grid
+                        grid-cols-1
+                        sm:grid-cols-1
+                        m:grid-cols-2
+                        lg:grid-cols-2
+                        xl:grid-cols-3
+                        gap-6">
         {contribData.map(contributor => (
           <ContributorCard key={contributor.login} contributorData={contributor} />
         ))}
       </div>
-    </div>
+      </div>
+      </>
   );
 }

@@ -20,26 +20,36 @@ export default function SearchBar() {
 
   function clearResults() {
     router.push("/listings");
-    setSearchTerm(() => "");
+    setSearchTerm("");
   }
 
   return (
-    <div className="form-control w-full max-w-xs">
-      <form onSubmit={handleSubmit}>
-        <div className="search-container">
-          <SearchIcon className="search-icon" />
+    <div className='form-control' style={{ width: "60%" }}>
+      <form
+        onSubmit={handleSubmit}
+        style={{ display: "flex", alignItems: "center" }}>
+        <div
+          className='search-container'
+          style={{
+            position: "relative",
+            display: "flex",
+            flexGrow: 1,
+            width: "600px",
+          }}>
+          <SearchIcon className='search-icon' />
           <input
-            type="search"
-            placeholder='"React" or "San Francisco"'
-            className="input input-bordered w-full max-w-xs"
+            type='search'
+            placeholder=' Enter search term, ex: "React" or "San Francisco"'
+            className='input input-bordered w-full'
+            style={{ paddingLeft: "30px" }} // Adjust padding to account for the icon
             value={searchTerm}
             onInput={handleInput}
           />
         </div>
+        <button className='btn btn-primary' onClick={clearResults}>
+          Clear search
+        </button>
       </form>
-      <button className="btn btn-neutral" onClick={clearResults}>
-        Clear search
-      </button>
     </div>
   );
 }
