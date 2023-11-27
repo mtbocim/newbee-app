@@ -7,14 +7,17 @@ import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import JobListingsInterface from "../interfaces/JobListingsInterface";
 import { useRouter } from 'next/navigation';
 
+
 /**
  * define the columns per MUI specifications
+ * https://mui.com/material-ui/react-table/#data-table
  */
 const columns: GridColDef[] = [
   {
     field: "job_title",
     headerName: "Job Title",
-    width: 410,
+    flex: 0.9,
+    minWidth: 180,
     renderCell: (params) => (
       <Tooltip title={params.value || ''} enterDelay={500} leaveDelay={200}>
         <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
@@ -26,19 +29,14 @@ const columns: GridColDef[] = [
   {
     field: "company_name",
     headerName: "Company",
-    width: 200,
-    renderCell: (params) => (
-      <Tooltip title={params.value || ''} enterDelay={500} leaveDelay={200}>
-        <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-          {params.value}
-        </div>
-      </Tooltip>
-    )
+    flex: 0.5,
+    minWidth: 140,
   },
   {
     field: "tech_stack",
     headerName: "Tech Stack",
-    width: 480,
+    flex: 1,
+    minWidth: 200,
     renderCell: (params) => (
       <Tooltip title={params.value || ''} enterDelay={500} leaveDelay={200}>
         <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
@@ -52,20 +50,15 @@ const columns: GridColDef[] = [
   {
     field: "location",
     headerName: "Location",
-    width: 230,
-    renderCell: (params) => (
-      <Tooltip title={params.value || ''} enterDelay={500} leaveDelay={200}>
-        <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-          {params.value}
-        </div>
-      </Tooltip>
-    ),
+    flex: 0.8,
+    minWidth: 100,
     valueGetter: (params: GridValueGetterParams) => params.row.location,
   },
   {
     field: "salary",
     headerName: "Salary",
-    width: 230,
+    flex: 0.6,
+    minWidth: 120,
     renderCell: (params) => {
       //TODO: I beleive this can be refactored, but bc I did not have the latest backend changes it was breaking the app, returning an object
 

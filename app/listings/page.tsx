@@ -4,6 +4,7 @@ import JobTable from "@/app/components/JobTable";
 import SearchBar from "../components/SearchBar";
 import HomeHero from "../components/HomeHero";
 
+
 export default async function Listings({
   searchParams,
 }: {
