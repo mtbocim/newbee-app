@@ -63,7 +63,8 @@ export default async function Listing({ params }: { params: { id: string } }) {
         <div>
           {/* <DescriptionOutlinedIcon
             style={{ color: "#0c4a6e" }} />{" "} */}
-          {result.job_description}
+            <Typography variant='h6'>Here&apos;s the Buzz:</Typography>
+          {result.json_response.reasoning}
         </div>
         <br />
         <a href={result.job_url} target="_blank">
