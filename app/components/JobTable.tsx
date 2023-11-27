@@ -18,9 +18,10 @@ const columns: GridColDef[] = [
     headerName: "Job Title",
     flex: 0.9,
     minWidth: 180,
+
     renderCell: (params) => (
       <Tooltip title={params.value || ''} enterDelay={500} leaveDelay={200}>
-        <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+        <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', paddingLeft: '10px'}}>
           {params.value}
         </div>
       </Tooltip>
@@ -121,6 +122,7 @@ export default function JobTable({ descriptions }: JobTableProps) {
       marginTop: '20px',
       marginBottom: '80px',
       borderRadius: "20px",
+      boxShadow: '1px 4px 12px #686767'
     }}>
       <DataGrid
       sx={{
@@ -131,6 +133,7 @@ export default function JobTable({ descriptions }: JobTableProps) {
           color: '#ffffff',
           borderTopLeftRadius: "20px",
           borderTopRightRadius: "20px",
+          paddingLeft: '10px'
         },
         '& .MuiDataGrid-footerContainer': {
           color: '#ffffff',
