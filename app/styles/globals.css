@@ -100,3 +100,6 @@ li {
   border-radius: 20px;
 }
 
+.MuiDataGrid-columnHeaders {
+  font-size: 18px;
+}
