@@ -32,6 +32,12 @@ const columns: GridColDef[] = [
     headerName: "Company",
     flex: 0.5,
     minWidth: 140,
+    renderCell: (params) => (
+        <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', paddingLeft: '10px'}}>
+          {params.value}
+        </div>
+    )
+
   },
   {
     field: "tech_stack",
@@ -40,7 +46,7 @@ const columns: GridColDef[] = [
     minWidth: 200,
     renderCell: (params) => (
       <Tooltip title={params.value || ''} enterDelay={500} leaveDelay={200}>
-        <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+        <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', paddingLeft: '10px'}}>
           {params.value}
         </div>
       </Tooltip>
@@ -53,6 +59,11 @@ const columns: GridColDef[] = [
     headerName: "Location",
     flex: 0.8,
     minWidth: 100,
+    renderCell: (params) => (
+      <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', paddingLeft: '10px'}}>
+        {params.value}
+      </div>
+  ),
     valueGetter: (params: GridValueGetterParams) => params.row.location,
   },
   {
@@ -72,7 +83,7 @@ const columns: GridColDef[] = [
 
       return (
         <Tooltip title={displayValue} enterDelay={500} leaveDelay={200}>
-          <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', paddingLeft: '10px' }}>
             {displayValue}
           </div>
         </Tooltip>
@@ -133,7 +144,7 @@ export default function JobTable({ descriptions }: JobTableProps) {
           color: '#ffffff',
           borderTopLeftRadius: "20px",
           borderTopRightRadius: "20px",
-          paddingLeft: '10px'
+          paddingLeft: '10px',
         },
         '& .MuiDataGrid-footerContainer': {
           color: '#ffffff',
