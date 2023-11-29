@@ -46,9 +46,9 @@ export default async function Listing({ params }: { params: { id: string } }) {
       <Header pageName='Job Details'  />
       <div className='job-details'>
         {/* Job listing components here */}
-        <Typography variant='h4'><WorkOutlineOutlinedIcon style={{ color: "#0c4a6e" }} /> {result.job_title}</Typography>
-        <Typography variant='h5'> <BusinessOutlinedIcon style={{ color: "#0c4a6e" }} /> {result.company_name}</Typography>
-        <Typography variant='h5'> <LocationOnOutlinedIcon style={{ color: "#0c4a6e" }}/> {result.json_response.location}</Typography>
+        <Typography variant='h5'><WorkOutlineOutlinedIcon style={{ color: "#0c4a6e" }} /> {result.job_title}</Typography>
+        <Typography variant='h6'> <BusinessOutlinedIcon style={{ color: "#0c4a6e" }} /> {result.company_name}</Typography>
+        <Typography variant='h6'> <LocationOnOutlinedIcon style={{ color: "#0c4a6e" }}/> {result.json_response.location}</Typography>
         <br />
         <Typography variant='h6'>
           <MonetizationOnOutlinedIcon style={{ color: "#0c4a6e" }} /> Salary:{" "}
@@ -59,11 +59,14 @@ export default async function Listing({ params }: { params: { id: string } }) {
           <SettingsApplicationsOutlinedIcon style={{ color: "#0c4a6e" }} /> Tech Stack:{" "}
           {result.json_response.tech_stack?.join(", ") || "not provided"}
         </Typography>
-        <br />
-        <div>
+          <br />
+          <div><Typography variant='h6'>Job Summary:</Typography>
+            {result.json_response.summary}</div>
+          <div>
+          <br />
           {/* <DescriptionOutlinedIcon
             style={{ color: "#0c4a6e" }} />{" "} */}
-            <Typography variant='h6'>Here&apos;s the Buzz:</Typography>
+            <Typography variant='h6'>The Buzz:</Typography>
           {result.json_response.reasoning}
         </div>
         <br />

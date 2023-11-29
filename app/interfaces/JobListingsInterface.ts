@@ -13,5 +13,6 @@ export default interface JobListingsInterface {
     department: string;
     tech_stack: string[];
     reasoning: string;
+    summary: string;
   };
 }
