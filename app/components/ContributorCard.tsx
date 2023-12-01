@@ -2,13 +2,15 @@ import ContributorInterface from "../interfaces/ContributorInterface";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ImportantDevicesSharpIcon from '@mui/icons-material/ImportantDevicesSharp';
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 export default function ContributorCard({
-  contributorData,
+  contributorData, linkedInUrl
 }: {
-  contributorData: ContributorInterface;
-}) {
-  console.log(contributorData);
+    contributorData: ContributorInterface;
+    linkedInUrl: string;
+  }) {
+
   return (
     <div className='card card-side bg-info w-64 h-64 flex'>
       <div className='w-1/3 flex justify-center p-2'>
@@ -29,8 +31,12 @@ export default function ContributorCard({
             <GitHubIcon style={{ marginRight: '10px' }} />
           </a>
           <a href={contributorData.blog} target='_blank'>
-            <ImportantDevicesSharpIcon />
+            <ImportantDevicesSharpIcon style={{ marginRight: '10px' }}/>
           </a>
+
+          <a href={linkedInUrl} target='_blank'>
+          <LinkedInIcon style={{ marginRight: '10px' }} />
+        </a>
 
           {/* The email addy is not accessible w/o token, or maybe some other workaround */}
           {/* <a

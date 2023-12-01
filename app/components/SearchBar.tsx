@@ -41,7 +41,7 @@ export default function SearchBar() {
             type='search'
             placeholder=' Enter search term, ex: "React" or "San Francisco"'
             className='input input-bordered w-full'
-            style={{ paddingLeft: "30px" }} // Adjust padding to account for the icon
+            style={{ paddingLeft: "30px", marginRight: '10px' }} // Adjust padding to account for the icon
             value={searchTerm}
             onInput={handleInput}
           />

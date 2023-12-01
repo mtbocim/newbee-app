@@ -10,9 +10,18 @@ const contributors = [
   "MGHermanMancarella",
   "CodingHobo",
   "camrandev",
-  "hbnnguyen",
   "mtbocim",
+  "hbnnguyen",
 ];
+
+const linkedInLinks = [
+  'https://www.linkedin.com/in/steven-h-zheng/',
+  'https://www.linkedin.com/in/michael-g-herman/',
+  'https://www.linkedin.com/in/tanyashylock/',
+  'https://www.linkedin.com/in/camranrynowecer/',
+  'https://www.linkedin.com/in/michaelbocim/',
+  'https://www.linkedin.com/in/hbnnguyen/',
+]
 
 export default function Devs() {
   const [contribData, setContribData] = useState<ContributorInterface[]>([]);
@@ -49,9 +58,9 @@ export default function Devs() {
                         lg:grid-cols-2
                         xl:grid-cols-3
                         gap-6">
-        {contribData.map(contributor => (
-          <ContributorCard key={contributor.login} contributorData={contributor} />
-        ))}
+        {contribData.map((contributor, index) => (
+            <ContributorCard key={contributor.login} contributorData={contributor} linkedInUrl={linkedInLinks[index]} />
+          ))}
       </div>
       </div>
       </>
