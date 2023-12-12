@@ -12,5 +12,5 @@ export default interface JobListingsInterface {
         location: string;
         department: string;
         tech_stack: string[];
-      };
+    };
 }
