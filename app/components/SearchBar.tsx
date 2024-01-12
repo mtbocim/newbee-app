@@ -25,7 +25,7 @@ export default function SearchBar() {
 
     return (
         <div
-            className="flex"
+            className="flex justify-center"
             style={{ width: '60%' }}
         >
             <div className="form-control">
