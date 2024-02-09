@@ -12,22 +12,22 @@ import { useRouter } from "next/navigation";
  * https://mui.com/material-ui/react-table/#data-table
  */
 const columns: GridColDef[] = [
-  {
-    field: "rowNumber",
-    headerName: "",
-    width: 50,
-    renderCell: (params) => (
-      <div
-        style={{
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-          whiteSpace: "nowrap",
-          paddingLeft: "10px",
-        }}>
-        {params.value}
-      </div>
-    ),
-  },
+  // {
+  //   field: "rowNumber",
+  //   headerName: "",
+  //   width: 50,
+  //   renderCell: (params) => (
+  //     <div
+  //       style={{
+  //         overflow: "hidden",
+  //         textOverflow: "ellipsis",
+  //         whiteSpace: "nowrap",
+  //         paddingLeft: "10px",
+  //       }}>
+  //       {params.value}
+  //     </div>
+  //   ),
+  // },
   {
     field: "job_title",
     headerName: "Job Title",
